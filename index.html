@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RJM TrueLine</title>
+<meta name="description" content="RJM TrueLine LLC, Phoenix, Arizona. Full site coming soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  /* Layout: one quiet card of text left-aligned on a wide field; a single hairline (the "true line") carries the identity. */
+  :root {
+    --bg: #eef0f2;
+    --fg: #15191f;
+    --muted: #5b6471;
+    --line: #b2692d;
+    --rule: #cfd4da;
+    --card: #f7f8f9;
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1419; --fg: #eef0f2; --muted: #98a2ae; --line: #d9924f; --rule: #2a323c; --card: #141a21;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1419; --fg: #eef0f2; --muted: #98a2ae; --line: #d9924f; --rule: #2a323c; --card: #141a21;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    min-height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: clamp(28px, 6vh, 72px);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .inner { width: 100%; max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(64px, 14vw, 168px);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    margin: 28px 0 0;
+    text-wrap: balance;
+  }
+  h1 small {
+    display: block;
+    font-weight: 500;
+    font-size: 0.32em;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .trueline {
+    position: relative;
+    height: 2px;
+    background: var(--line);
+    margin: 40px 0 32px;
+    border: 0;
+  }
+  .trueline::after {
+    content: "";
+    position: absolute;
+    right: 0; top: -5px;
+    width: 12px; height: 12px;
+    background: var(--line);
+    transform: rotate(45deg);
+  }
+  .lede {
+    max-width: 34em;
+    margin: 0;
+    font-size: clamp(18px, 2.2vw, 22px);
+    color: var(--fg);
+  }
+  .lede span { color: var(--muted); }
+  .contact {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+  }
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .addr {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 14px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    user-select: all;
+    word-break: break-all;
+  }
+  .copy {
+    font: 500 13px var(--mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg);
+    background: transparent;
+    border: 1px solid var(--fg);
+    padding: 9px 14px;
+    cursor: pointer;
+  }
+  .copy:hover { background: var(--fg); color: var(--bg); }
+  .copy:focus-visible { outline: 2px solid var(--line); outline-offset: 2px; }
+  footer {
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .trueline { transform-origin: left; animation: draw 900ms cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <main class="inner">
+    <p class="eyebrow"><span>RJM TrueLine LLC</span><span>Phoenix, Arizona</span><span>Est. 2026</span></p>
+    <h1>RJM<br>TrueLine<small>Sports pricing analytics</small></h1>
+    <hr class="trueline" aria-hidden="true">
+    <p class="lede">Our full site is on the way. <span>Until then, the fastest way to reach us is by email.</span></p>
+    <div class="contact">
+      <span class="contact-label">Email</span>
+      <span class="addr" id="addr">jon@rjmtrueline.com</span>
+      <button class="copy" id="copyBtn" type="button">Copy</button>
+    </div>
+  </main>
+  <footer class="inner">
+    <span>&copy; 2026 RJM TrueLine LLC</span>
+    <span>rjmtrueline.com</span>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copyBtn');
+    var addr = document.getElementById('addr');
+    if (!btn || !addr) return;
+    btn.addEventListener('click', function () {
+      var text = addr.textContent.trim();
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      var fallback = function () {
+        try {
+          var r = document.createRange(); r.selectNodeContents(addr);
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+          btn.textContent = 'Selected';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+        } catch (e) {}
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
